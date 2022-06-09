@@ -5,8 +5,7 @@ import sys
 #
 if __name__ == '__main__':
 
-    curkey = None
-    mayor = 0
+    diccionario = {}
 
     #
     # cada linea de texto recibida es una entrada clave \tabulador valor
@@ -16,26 +15,11 @@ if __name__ == '__main__':
         key, val = line.split("\t")
         val = int(val)
 
-        if key == curkey:
-            #
-            # No se ha cambiado de clave. Aca se acumulan los valores para la misma
-            # clave.
-            #
-            if val > mayor:
-                mayor = val            
-        else:
-            #
-            # Se cambio de clave. Se reinicia el acumulador.
-            #
-            if curkey is not None:
-                #
-                # una vez se han reducido todos los elementos
-                # con la misma clave se imprime el resultado en
-                # el flujo de salida
-                #
-                sys.stdout.write("{}\t{}\n".format(curkey, mayor))
+        diccionario[key] = val
 
-            curkey = key
-            mayor = val
+    #ordernar el diccionario
+    diccionario = sorted(diccionario.items(), key=lambda x: x[1])
 
-    sys.stdout.write("{}\t{}\n".format(curkey, mayor))
+    #imprimir el diccionario
+    for key, val in diccionario:
+        sys.stdout.write("{}\t{}\n".format(key, val))
