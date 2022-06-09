@@ -22,4 +22,4 @@ if __name__ == '__main__':
 
     #imprimir el diccionario
     for key, val in diccionario:
-        sys.stdout.write("{}\t{}\n".format(key, val))
+        sys.stdout.write("{},{}\n".format(key, val))
