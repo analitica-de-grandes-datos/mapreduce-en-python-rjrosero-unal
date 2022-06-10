@@ -20,12 +20,16 @@ if __name__ == '__main__':
 
         #por cada letra de val obtener cada uno de los key asociados
         for i in val:
-            diccionarioLetras[i].append(key)
+            if i not in diccionarioLetras.keys():
+                diccionarioLetras[i] = key
+            else:
+                diccionarioLetras[i] += ',' + key           
 
         sortedDict = sorted(diccionarioLetras.items(), key=lambda x: x[0])
 
-        for k, v in sortedDict:
-            res = sorted(v, key = int)
-            v = ",".join(map(str, res))
+    #imprimir el diccionario
+    for key, valorOrdenado in sortedDict:
+        resultado = sorted(valorOrdenado.split(','), key = int)
+        valorOrdenado = ",".join(map(str, resultado))
 
-            sys.stdout.write("{}\t{}\n".format(k, v))
+        sys.stdout.write("{}\t{}\n".format(key, valorOrdenado))
