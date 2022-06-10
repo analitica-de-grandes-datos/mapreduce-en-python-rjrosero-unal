@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     #imprimir el diccionario
     for tupla in tuplaOrdenada:
-        sys.stdout.write("{}\t{}\t{}\n".format(tupla[0], tupla[1], tupla[2]))
+        sys.stdout.write("{}   {}   {}\n".format(tupla[0], tupla[1], tupla[2]))
 
     
         
