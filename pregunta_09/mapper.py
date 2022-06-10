@@ -11,4 +11,4 @@ if __name__ == "__main__":
         fecha=fields[1]
         numero=fields[2]
         
-        sys.stdout.write("{}   {}   {}\n".format(letra,fecha,numero))
+        sys.stdout.write("{}\t{}\t{}\n".format(letra,fecha,numero))
