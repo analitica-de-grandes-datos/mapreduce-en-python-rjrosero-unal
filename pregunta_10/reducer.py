@@ -16,23 +16,20 @@ if __name__ == '__main__':
     for line in sys.stdin:
 
         key, val = line.split("\t")
-        val = val.split(",")
+        val = val.strip().split(",")
 
         #por cada letra de val obtener cada uno de los key asociados
         for i in val:
-            #si no existe la clave la crea y le asigna el valor
-            if i not in diccionarioLetras:
-                diccionarioLetras[i] = [key]
-            #si ya existe la clave la agrega al valor
+            if i not in diccionarioLetras.keys():
+                diccionarioLetras[i] = key
             else:
-                diccionarioLetras[i].append(key)
-
-            #if i not in diccionarioLetras.keys():
-            #    diccionarioLetras[i] = key
-            #else:
-            #    diccionarioLetras[i] += ',' + key           
+                diccionarioLetras[i] += ',' + key           
 
         sortedDict = sorted(diccionarioLetras.items(), key=lambda x: x[0])
+
+    #for i in sortedDict:
+    #    sys.stdout.write("{}\t{}\n".format(i[0], i[1]))
+
 
     #imprimir el diccionario
     for key, valorOrdenado in sortedDict:
