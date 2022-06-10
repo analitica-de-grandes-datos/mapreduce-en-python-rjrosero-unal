@@ -20,10 +20,17 @@ if __name__ == '__main__':
 
         #por cada letra de val obtener cada uno de los key asociados
         for i in val:
-            if i not in diccionarioLetras.keys():
-                diccionarioLetras[i] = key
+            #si no existe la clave la crea y le asigna el valor
+            if i not in diccionarioLetras:
+                diccionarioLetras[i] = [key]
+            #si ya existe la clave la agrega al valor
             else:
-                diccionarioLetras[i] += ',' + key           
+                diccionarioLetras[i].append(key)
+
+            #if i not in diccionarioLetras.keys():
+            #    diccionarioLetras[i] = key
+            #else:
+            #    diccionarioLetras[i] += ',' + key           
 
         sortedDict = sorted(diccionarioLetras.items(), key=lambda x: x[0])
 
