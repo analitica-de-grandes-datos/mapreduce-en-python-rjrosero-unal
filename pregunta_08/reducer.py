@@ -36,11 +36,11 @@ if __name__ == '__main__':
                 prom = suma / len(listaElementos)
                 listaElementos.clear()                
 
-                sys.stdout.write("{}   {}   {}\n".format(curkey, suma, prom))
+                sys.stdout.write("{}\t{}\t{}\n".format(curkey, suma, prom))
 
             curkey = key
             listaElementos.append(val)               
 
     suma = sum(listaElementos)
     prom = suma / len(listaElementos)
-    sys.stdout.write("{}   {}   {}\n".format(curkey, suma, prom))
+    sys.stdout.write("{}\t{}\t{}\n".format(curkey, suma, prom))
